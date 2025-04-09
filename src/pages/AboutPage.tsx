@@ -1,160 +1,286 @@
 
 import { Link } from "react-router-dom";
-import { Target, CheckCircle, Users, Clock } from "lucide-react";
+import { Target, CheckCircle, Users, Clock, Award, Zap, ChevronRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 const AboutPage = () => {
+  const fadeIn = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.6 }
+    }
+  };
+
+  const staggerContainer = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2
+      }
+    }
+  };
+
   return (
-    <div className="pt-24">
-      {/* Hero Section */}
-      <section className="bg-hackathon-dark text-white py-16">
-        <div className="container max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">About TechAvishkar</h1>
-            <p className="text-xl max-w-3xl mx-auto">
-              An intermediate-level hackathon aimed at fostering innovation in technology
+    <div className="pt-24 overflow-hidden bg-hackathon-almond">
+      {/* Hero Section with Gradient Background */}
+      <section className="relative py-24 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-r from-hackathon-charcoal to-hackathon-charcoal/80 opacity-90"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-hackathon-orange/20 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-hackathon-teal/20 blur-3xl"></div>
+        
+        <div className="container max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+          <motion.div 
+            className="text-center"
+            initial="hidden"
+            animate="visible"
+            variants={fadeIn}
+          >
+            <span className="inline-flex items-center text-hackathon-orange font-medium px-4 py-1.5 rounded-full bg-hackathon-orange/10 mb-4">
+              <Zap size={16} className="mr-2" /> Innovation Starts Here
+            </span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-hackathon-almond">About TechAvishkar</h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-hackathon-almond/80">
+              Join the revolution of tech innovation where ideas transform into impactful solutions
             </p>
-          </div>
+          </motion.div>
         </div>
       </section>
 
-      {/* Main Content */}
-      <section className="py-16">
+      {/* Main Content with Cards Layout */}
+      <section className="py-20 relative">
         <div className="container max-w-7xl mx-auto px-4 sm:px-6">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-            <div>
-              <h2 className="text-3xl font-bold mb-6">What is TechAvishkar?</h2>
-              <p className="text-lg mb-6">
+          <motion.div 
+            className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <motion.div className="lg:col-span-6" variants={fadeIn}>
+              <h2 className="text-3xl md:text-4xl font-bold mb-6 relative">
+                <span className="relative z-10">What is TechAvishkar?</span>
+                <span className="absolute -z-10 bottom-0 left-0 h-3 w-24 bg-hackathon-orange/30 rounded"></span>
+              </h2>
+              <p className="text-lg mb-6 text-hackathon-charcoal/80">
                 TechAvishkar is an intermediate-level hackathon aimed at fostering innovation in 
                 AI, IoT, cybersecurity, and software development. Participants will solve real-world 
                 problems while competing for exciting prizes and networking opportunities.
               </p>
-              <p className="text-lg mb-6">
+              <p className="text-lg mb-6 text-hackathon-charcoal/80">
                 The hackathon provides a platform for tech enthusiasts to collaborate, learn from 
                 each other, and push the boundaries of what's possible with technology.
               </p>
-              <p className="text-lg">
+              <p className="text-lg text-hackathon-charcoal/80">
                 Whether you're a student, professional, or just passionate about technology, 
                 TechAvishkar offers you the chance to showcase your skills and creativity.
               </p>
-            </div>
-            <div className="bg-hackathon-light p-8 rounded-xl">
-              <div className="flex flex-col space-y-6">
-                <div className="flex items-start space-x-4">
-                  <Target size={24} className="text-hackathon-purple mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Our Mission</h3>
-                    <p>
-                      To empower the next generation of innovators and problem-solvers by providing 
-                      a competitive yet collaborative environment that fosters creativity, 
-                      technical excellence, and real-world impact.
-                    </p>
+            </motion.div>
+            
+            <motion.div 
+              className="lg:col-span-6 grid grid-cols-1 sm:grid-cols-2 gap-5"
+              variants={staggerContainer}
+            >
+              {[
+                {
+                  icon: <Target size={28} className="text-hackathon-orange" />,
+                  title: "Our Mission",
+                  description: "To empower the next generation of innovators and problem-solvers by providing a competitive yet collaborative environment."
+                },
+                {
+                  icon: <CheckCircle size={28} className="text-hackathon-teal" />,
+                  title: "Hackathon Structure",
+                  description: "A two-day event with multiple rounds, including idea pitching, development phases, and final presentations."
+                },
+                {
+                  icon: <Users size={28} className="text-hackathon-orange" />,
+                  title: "Eligibility",
+                  description: "Open to students, professionals, and tech enthusiasts with intermediate coding skills."
+                },
+                {
+                  icon: <Award size={28} className="text-hackathon-teal" />,
+                  title: "Recognition",
+                  description: "Winners receive prizes, certificates, mentorship opportunities, and industry recognition."
+                }
+              ].map((item, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  variants={fadeIn}
+                >
+                  <div className="w-12 h-12 rounded-full bg-hackathon-almond/50 flex items-center justify-center mb-4">
+                    {item.icon}
                   </div>
-                </div>
+                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
+                  <p className="text-hackathon-charcoal/70">{item.description}</p>
+                </motion.div>
+              ))}
+            </motion.div>
+          </motion.div>
 
-                <div className="flex items-start space-x-4">
-                  <CheckCircle size={24} className="text-hackathon-teal mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Hackathon Structure</h3>
-                    <p>
-                      TechAvishkar is structured as a two-day event with multiple rounds, 
-                      including idea pitching, development phases, and final presentations. 
-                      Teams will be evaluated based on innovation, technical implementation, 
-                      impact, and presentation quality.
-                    </p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <Users size={24} className="text-hackathon-orange mt-1 flex-shrink-0" />
-                  <div>
-                    <h3 className="text-xl font-semibold mb-2">Eligibility</h3>
-                    <p>
-                      Open to students, professionals, and tech enthusiasts with intermediate 
-                      coding skills. Participants can form teams of 2-4 members or join as individuals 
-                      and get matched with a team.
-                    </p>
-                  </div>
-                </div>
-              </div>
+          {/* Statistics Section */}
+          <motion.div 
+            className="bg-hackathon-charcoal rounded-2xl p-10 mb-20 relative overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-hackathon-orange/10 blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-hackathon-teal/10 blur-3xl"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
+              {[
+                { number: "3+", label: "Years Running", color: "text-hackathon-orange" },
+                { number: "1000+", label: "Participants", color: "text-hackathon-almond" },
+                { number: "50+", label: "Projects Created", color: "text-hackathon-teal" },
+                { number: "$25K", label: "in Prizes", color: "text-hackathon-orange" }
+              ].map((stat, index) => (
+                <motion.div 
+                  key={index} 
+                  className="text-center"
+                  variants={fadeIn}
+                >
+                  <p className={`text-4xl font-bold mb-2 ${stat.color}`}>{stat.number}</p>
+                  <p className="text-hackathon-almond/80">{stat.label}</p>
+                </motion.div>
+              ))}
             </div>
-          </div>
+          </motion.div>
 
           {/* Past Hackathons */}
-          <div className="mb-16">
-            <h2 className="text-3xl font-bold mb-8 text-center">Past Hackathons</h2>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                <div className="h-48 bg-gray-200 flex items-center justify-center">
-                  <Clock size={48} className="text-hackathon-purple opacity-50" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">TechAvishkar 2023</h3>
-                  <p className="text-muted-foreground mb-4">
-                    Over 500 participants from 50+ colleges came together to build innovative 
-                    solutions for healthcare, education, and sustainability challenges.
-                  </p>
-                  <div className="flex space-x-2">
-                    <span className="bg-purple-100 text-hackathon-purple text-xs px-2 py-1 rounded-full">AI/ML</span>
-                    <span className="bg-blue-100 text-hackathon-teal text-xs px-2 py-1 rounded-full">FinTech</span>
-                    <span className="bg-orange-100 text-hackathon-orange text-xs px-2 py-1 rounded-full">EdTech</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                <div className="h-48 bg-gray-200 flex items-center justify-center">
-                  <Clock size={48} className="text-hackathon-teal opacity-50" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">TechAvishkar 2022</h3>
-                  <p className="text-muted-foreground mb-4">
-                    A virtual hackathon focused on cybersecurity and blockchain technologies, 
-                    with 300+ participants from across the country.
-                  </p>
-                  <div className="flex space-x-2">
-                    <span className="bg-purple-100 text-hackathon-purple text-xs px-2 py-1 rounded-full">CyberSec</span>
-                    <span className="bg-blue-100 text-hackathon-teal text-xs px-2 py-1 rounded-full">Blockchain</span>
-                    <span className="bg-orange-100 text-hackathon-orange text-xs px-2 py-1 rounded-full">Web3</span>
-                  </div>
-                </div>
-              </div>
-
-              <div className="bg-white shadow-md rounded-xl overflow-hidden">
-                <div className="h-48 bg-gray-200 flex items-center justify-center">
-                  <Clock size={48} className="text-hackathon-orange opacity-50" />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold mb-2">TechAvishkar 2021</h3>
-                  <p className="text-muted-foreground mb-4">
-                    The inaugural hackathon with a focus on IoT and smart city solutions, 
-                    bringing together 200+ enthusiastic developers.
-                  </p>
-                  <div className="flex space-x-2">
-                    <span className="bg-purple-100 text-hackathon-purple text-xs px-2 py-1 rounded-full">IoT</span>
-                    <span className="bg-blue-100 text-hackathon-teal text-xs px-2 py-1 rounded-full">SmartCity</span>
-                    <span className="bg-orange-100 text-hackathon-orange text-xs px-2 py-1 rounded-full">Hardware</span>
-                  </div>
-                </div>
-              </div>
+          <motion.div 
+            className="mb-20"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <div className="text-center mb-12">
+              <motion.span 
+                className="inline-flex items-center text-hackathon-orange font-medium px-4 py-1.5 rounded-full bg-hackathon-orange/10 mb-4"
+                variants={fadeIn}
+              >
+                <Clock size={16} className="mr-2" /> Previous Editions
+              </motion.span>
+              <motion.h2 
+                className="text-3xl md:text-4xl font-bold mb-4"
+                variants={fadeIn}
+              >
+                Past Hackathons
+              </motion.h2>
+              <motion.p 
+                className="text-lg max-w-2xl mx-auto text-hackathon-charcoal/70"
+                variants={fadeIn}
+              >
+                Look back at our journey of innovation and creativity through the years
+              </motion.p>
             </div>
-          </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+              {[
+                {
+                  year: "2023",
+                  image: "bg-gradient-to-br from-hackathon-purple/20 to-hackathon-purple/5",
+                  title: "TechAvishkar 2023",
+                  description: "Over 500 participants from 50+ colleges built innovative solutions for healthcare, education, and sustainability challenges.",
+                  tags: ["AI/ML", "FinTech", "EdTech"]
+                },
+                {
+                  year: "2022",
+                  image: "bg-gradient-to-br from-hackathon-teal/20 to-hackathon-teal/5",
+                  title: "TechAvishkar 2022",
+                  description: "A virtual hackathon focused on cybersecurity and blockchain technologies, with 300+ participants from across the country.",
+                  tags: ["CyberSec", "Blockchain", "Web3"]
+                },
+                {
+                  year: "2021",
+                  image: "bg-gradient-to-br from-hackathon-orange/20 to-hackathon-orange/5",
+                  title: "TechAvishkar 2021",
+                  description: "The inaugural hackathon with a focus on IoT and smart city solutions, bringing together 200+ enthusiastic developers.",
+                  tags: ["IoT", "SmartCity", "Hardware"]
+                }
+              ].map((event, index) => (
+                <motion.div 
+                  key={index}
+                  className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+                  variants={fadeIn}
+                >
+                  <div className={`h-48 ${event.image} flex items-center justify-center relative p-6`}>
+                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
+                      {event.year}
+                    </div>
+                    <Clock size={54} className="text-hackathon-charcoal/30" />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
+                    <p className="text-hackathon-charcoal/70 mb-4 line-clamp-3">
+                      {event.description}
+                    </p>
+                    <div className="flex flex-wrap gap-2">
+                      {event.tags.map((tag, tagIndex) => {
+                        const tagColors = [
+                          "bg-purple-100 text-hackathon-purple",
+                          "bg-blue-100 text-hackathon-teal",
+                          "bg-orange-100 text-hackathon-orange"
+                        ];
+                        return (
+                          <span 
+                            key={tagIndex} 
+                            className={`${tagColors[tagIndex]} text-xs px-2 py-1 rounded-full`}
+                          >
+                            {tag}
+                          </span>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+          </motion.div>
 
           {/* CTA Section */}
-          <div className="text-center">
-            <h2 className="text-3xl font-bold mb-6">Ready to Join TechAvishkar?</h2>
-            <p className="text-lg max-w-2xl mx-auto mb-8">
+          <motion.div 
+            className="text-center bg-white rounded-2xl p-12 shadow-lg relative overflow-hidden"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            variants={staggerContainer}
+          >
+            <div className="absolute top-0 right-0 w-full h-2 bg-gradient-to-r from-hackathon-orange to-hackathon-teal"></div>
+            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-hackathon-orange/5 blur-3xl"></div>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-hackathon-teal/5 blur-3xl"></div>
+            
+            <motion.h2 
+              className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
+              variants={fadeIn}
+            >
+              Ready to Join TechAvishkar?
+              <span className="absolute -z-10 bottom-0 left-0 h-3 w-full bg-hackathon-orange/30 rounded"></span>
+            </motion.h2>
+            <motion.p 
+              className="text-lg max-w-2xl mx-auto mb-8 text-hackathon-charcoal/70"
+              variants={fadeIn}
+            >
               Be part of an exciting journey of innovation, learning, and networking. 
               Register today and showcase your skills!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to="/register" className="btn-primary">
+            </motion.p>
+            <motion.div 
+              className="flex flex-col sm:flex-row gap-4 justify-center"
+              variants={fadeIn}
+            >
+              <Link to="/register" className="btn-primary inline-flex items-center justify-center group">
                 Register Now
+                <ChevronRight size={18} className="ml-2 transition-transform group-hover:translate-x-1" />
               </Link>
-              <Link to="/tracks" className="btn-outline">
+              <Link to="/tracks" className="btn-outline inline-flex items-center justify-center">
                 Explore Tracks
               </Link>
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
         </div>
       </section>
     </div>
