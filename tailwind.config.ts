@@ -54,10 +54,11 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
                 hackathon: {
+                    almond: '#EEE5DA',
+                    charcoal: '#262424',
                     purple: '#6E59A5',
                     teal: '#0EA5E9',
                     orange: '#F97316',
-                    dark: '#1A1F2C',
                     light: '#F1F0FB'
                 }
 			},

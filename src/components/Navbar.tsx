@@ -22,11 +22,11 @@ const Navbar = () => {
   };
 
   return (
-    <header className="fixed top-0 left-0 right-0 bg-white/90 backdrop-blur-sm z-50 shadow-sm">
+    <header className="fixed top-0 left-0 right-0 bg-hackathon-almond/90 backdrop-blur-sm z-50 shadow-sm">
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center py-4">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="font-display text-2xl font-bold text-hackathon-purple">
+            <div className="font-display text-2xl font-bold text-hackathon-charcoal">
               Tech<span className="text-hackathon-teal">Avishkar</span>
             </div>
           </Link>
@@ -39,8 +39,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`font-medium transition-colors ${
                   isActive(link.path)
-                    ? "text-hackathon-purple"
-                    : "text-foreground hover:text-hackathon-purple"
+                    ? "text-hackathon-charcoal"
+                    : "text-foreground hover:text-hackathon-charcoal"
                 }`}
               >
                 {link.name}
@@ -71,7 +71,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-white">
+        <div className="md:hidden bg-hackathon-almond">
           <div className="container px-4 sm:px-6 py-4 space-y-4">
             {navLinks.map((link) => (
               <Link
@@ -79,8 +79,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`block font-medium py-2 ${
                   isActive(link.path)
-                    ? "text-hackathon-purple"
-                    : "text-foreground hover:text-hackathon-purple"
+                    ? "text-hackathon-charcoal"
+                    : "text-foreground hover:text-hackathon-charcoal"
                 }`}
                 onClick={() => setIsOpen(false)}
               >

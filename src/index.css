@@ -7,17 +7,17 @@
 
 @layer base {
   :root {
-    --background: 252 97% 99%;
-    --foreground: 254 12% 20%;
+    --background: 36 33% 95%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 254 12% 20%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 254 12% 20%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 260 35% 55%;
-    --primary-foreground: 0 0% 100%;
+    --primary: 0 0% 15%;
+    --primary-foreground: 36 33% 95%;
 
     --secondary: 200 95% 45%;
     --secondary-foreground: 0 0% 100%;
@@ -25,15 +25,15 @@
     --accent: 25 95% 50%;
     --accent-foreground: 0 0% 100%;
 
-    --muted: 240 6% 92%;
-    --muted-foreground: 254 6% 45%;
+    --muted: 36 33% 90%;
+    --muted-foreground: 0 0% 40%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
 
-    --border: 240 6% 90%;
-    --input: 240 6% 90%;
-    --ring: 260 35% 55%;
+    --border: 36 33% 90%;
+    --input: 36 33% 90%;
+    --ring: 0 0% 15%;
 
     --radius: 0.75rem;
   }
@@ -44,7 +44,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground antialiased;
+    @apply bg-hackathon-almond text-hackathon-charcoal antialiased;
   }
   
   h1, h2, h3, h4, h5, h6 {
@@ -66,7 +66,7 @@
   }
   
   .btn-primary {
-    @apply bg-hackathon-purple hover:bg-hackathon-purple/90 text-white font-semibold rounded-lg py-3 px-6 transition-all shadow-md hover:shadow-lg;
+    @apply bg-hackathon-charcoal hover:bg-hackathon-charcoal/90 text-hackathon-almond font-semibold rounded-lg py-3 px-6 transition-all shadow-md hover:shadow-lg;
   }
   
   .btn-secondary {
@@ -78,11 +78,11 @@
   }
   
   .btn-outline {
-    @apply border-2 border-hackathon-purple text-hackathon-purple hover:bg-hackathon-purple/10 font-semibold rounded-lg py-[10px] px-6 transition-all;
+    @apply border-2 border-hackathon-charcoal text-hackathon-charcoal hover:bg-hackathon-charcoal/10 font-semibold rounded-lg py-[10px] px-6 transition-all;
   }
   
   .card-gradient {
-    @apply bg-gradient-to-br from-white to-hackathon-light;
+    @apply bg-gradient-to-br from-white to-hackathon-almond/70;
   }
   
   .track-card {
@@ -90,7 +90,7 @@
   }
   
   .timeline-item {
-    @apply relative pl-8 pb-8 border-l-2 border-hackathon-purple border-dashed;
+    @apply relative pl-8 pb-8 border-l-2 border-hackathon-charcoal border-dashed;
   }
   
   .timeline-item:last-child {
@@ -98,6 +98,6 @@
   }
   
   .timeline-dot {
-    @apply absolute -left-[9px] w-4 h-4 rounded-full bg-hackathon-purple;
+    @apply absolute -left-[9px] w-4 h-4 rounded-full bg-hackathon-charcoal;
   }
 }
