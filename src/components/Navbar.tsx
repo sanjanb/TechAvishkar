@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -59,13 +59,14 @@ const Navbar = () => {
               <Link
                 key={link.name}
                 to={link.path}
-                className={`font-medium transition-colors relative ${
+                className={`font-medium transition-colors relative group py-2 ${
                   isActive(link.path)
                     ? "text-hackathon-charcoal after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hackathon-orange"
                     : "text-hackathon-charcoal/70 hover:text-hackathon-charcoal"
                 }`}
               >
                 {link.name}
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-hackathon-orange scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
               </Link>
             ))}
           </nav>
@@ -73,9 +74,10 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link 
               to="/register" 
-              className="bg-hackathon-charcoal hover:bg-hackathon-charcoal/90 text-hackathon-almond font-medium rounded-lg py-2.5 px-5 transition-all"
+              className="relative inline-flex items-center bg-hackathon-charcoal hover:bg-hackathon-charcoal/90 text-hackathon-almond font-medium rounded-lg py-2.5 px-5 transition-all overflow-hidden group"
             >
-              Register Now
+              <span className="relative z-10">Register Now</span>
+              <span className="absolute inset-0 bg-gradient-to-r from-hackathon-charcoal to-hackathon-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </Link>
           </div>
 
@@ -86,9 +88,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X size={24} className="text-hackathon-charcoal" />
+              <X size={24} className="text-hackathon-charcoal animate-fade-in" />
             ) : (
-              <Menu size={24} className="text-hackathon-charcoal" />
+              <Menu size={24} className="text-hackathon-charcoal animate-fade-in" />
             )}
           </button>
         </div>
@@ -96,25 +98,30 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-hackathon-almond/95 backdrop-blur-md border-t border-hackathon-charcoal/10">
+        <div className="md:hidden bg-hackathon-almond/95 backdrop-blur-md border-t border-hackathon-charcoal/10 animate-fade-in">
           <div className="container px-4 sm:px-6 py-6 space-y-4">
-            {navLinks.map((link) => (
+            {navLinks.map((link, index) => (
               <Link
                 key={link.name}
                 to={link.path}
-                className={`block font-medium py-2 ${
+                className={`block font-medium py-2 animate-fade-up`}
+                style={{ animationDelay: `${index * 0.05}s` }}
+                onClick={() => setIsOpen(false)}
+              >
+                <div className={`flex items-center ${
                   isActive(link.path)
                     ? "text-hackathon-charcoal"
                     : "text-hackathon-charcoal/70 hover:text-hackathon-charcoal"
-                }`}
-                onClick={() => setIsOpen(false)}
-              >
-                {link.name}
+                }`}>
+                  <ChevronDown size={16} className={`mr-2 transition-transform duration-300 ${isActive(link.path) ? "rotate-180 text-hackathon-orange" : ""}`} />
+                  {link.name}
+                </div>
               </Link>
             ))}
             <Link
               to="/register"
-              className="block text-center mt-4 bg-hackathon-charcoal hover:bg-hackathon-charcoal/90 text-hackathon-almond font-medium rounded-lg py-2.5 px-5 transition-all"
+              className="block text-center mt-4 bg-hackathon-charcoal hover:bg-hackathon-charcoal/90 text-hackathon-almond font-medium rounded-lg py-2.5 px-5 transition-all animate-fade-up"
+              style={{ animationDelay: "0.4s" }}
               onClick={() => setIsOpen(false)}
             >
               Register Now
