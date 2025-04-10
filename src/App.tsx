@@ -17,6 +17,7 @@ import PrizesPage from "./pages/PrizesPage";
 import RulesPage from "./pages/RulesPage";
 import FAQPage from "./pages/FAQPage";
 import RegisterPage from "./pages/RegisterPage";
+import SponsorsPage from "./pages/SponsorsPage";
 import NotFound from "./pages/NotFound";
 
 // Create a client
@@ -42,6 +43,7 @@ const App = () => {
                   <Route path="/rules" element={<RulesPage />} />
                   <Route path="/faq" element={<FAQPage />} />
                   <Route path="/register" element={<RegisterPage />} />
+                  <Route path="/sponsors" element={<SponsorsPage />} />
                   <Route path="*" element={<NotFound />} />
                 </Routes>
               </main>

@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Target, CheckCircle, Users, Clock, Award, Zap, ChevronRight } from "lucide-react";
+import { Target, CheckCircle, Users, Clock, Award, Zap, ChevronRight, Diamond } from "lucide-react";
 import { motion } from "framer-motion";
 
 const AboutPage = () => {
@@ -24,12 +24,12 @@ const AboutPage = () => {
   };
 
   return (
-    <div className="pt-24 overflow-hidden bg-hackathon-almond">
+    <div className="pt-24 overflow-hidden bg-hackathon-darkPurple">
       {/* Hero Section with Gradient Background */}
       <section className="relative py-24 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-r from-hackathon-charcoal to-hackathon-charcoal/80 opacity-90"></div>
-        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-hackathon-orange/20 blur-3xl"></div>
-        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-hackathon-teal/20 blur-3xl"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-hackathon-navy to-hackathon-darkPurple opacity-90"></div>
+        <div className="absolute -top-40 -right-40 w-96 h-96 rounded-full bg-hackathon-diamond/20 blur-3xl"></div>
+        <div className="absolute -bottom-40 -left-40 w-96 h-96 rounded-full bg-hackathon-lightPurple/20 blur-3xl"></div>
         
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <motion.div 
@@ -38,11 +38,11 @@ const AboutPage = () => {
             animate="visible"
             variants={fadeIn}
           >
-            <span className="inline-flex items-center text-hackathon-orange font-medium px-4 py-1.5 rounded-full bg-hackathon-orange/10 mb-4">
-              <Zap size={16} className="mr-2" /> Innovation Starts Here
+            <span className="inline-flex items-center text-hackathon-diamond font-medium px-4 py-1.5 rounded-full bg-hackathon-diamond/10 mb-4">
+              <Diamond size={16} className="mr-2" /> Innovation Starts Here
             </span>
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-hackathon-almond">About TechAvishkar</h1>
-            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-hackathon-almond/80">
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 text-white">About TechAvishkar</h1>
+            <p className="text-xl md:text-2xl max-w-3xl mx-auto text-white/80">
               Join the revolution of tech innovation where ideas transform into impactful solutions
             </p>
           </motion.div>
@@ -62,18 +62,18 @@ const AboutPage = () => {
             <motion.div className="lg:col-span-6" variants={fadeIn}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 relative">
                 <span className="relative z-10">What is TechAvishkar?</span>
-                <span className="absolute -z-10 bottom-0 left-0 h-3 w-24 bg-hackathon-orange/30 rounded"></span>
+                <span className="absolute -z-10 bottom-0 left-0 h-3 w-24 bg-hackathon-diamond/30 rounded"></span>
               </h2>
-              <p className="text-lg mb-6 text-hackathon-charcoal/80">
+              <p className="text-lg mb-6 text-white/80">
                 TechAvishkar is an intermediate-level hackathon aimed at fostering innovation in 
                 AI, IoT, cybersecurity, and software development. Participants will solve real-world 
                 problems while competing for exciting prizes and networking opportunities.
               </p>
-              <p className="text-lg mb-6 text-hackathon-charcoal/80">
+              <p className="text-lg mb-6 text-white/80">
                 The hackathon provides a platform for tech enthusiasts to collaborate, learn from 
                 each other, and push the boundaries of what's possible with technology.
               </p>
-              <p className="text-lg text-hackathon-charcoal/80">
+              <p className="text-lg text-white/80">
                 Whether you're a student, professional, or just passionate about technology, 
                 TechAvishkar offers you the chance to showcase your skills and creativity.
               </p>
@@ -85,36 +85,36 @@ const AboutPage = () => {
             >
               {[
                 {
-                  icon: <Target size={28} className="text-hackathon-orange" />,
+                  icon: <Target size={28} className="text-hackathon-diamond" />,
                   title: "Our Mission",
                   description: "To empower the next generation of innovators and problem-solvers by providing a competitive yet collaborative environment."
                 },
                 {
-                  icon: <CheckCircle size={28} className="text-hackathon-teal" />,
+                  icon: <CheckCircle size={28} className="text-hackathon-lightPurple" />,
                   title: "Hackathon Structure",
                   description: "A two-day event with multiple rounds, including idea pitching, development phases, and final presentations."
                 },
                 {
-                  icon: <Users size={28} className="text-hackathon-orange" />,
+                  icon: <Users size={28} className="text-hackathon-diamond" />,
                   title: "Eligibility",
                   description: "Open to students, professionals, and tech enthusiasts with intermediate coding skills."
                 },
                 {
-                  icon: <Award size={28} className="text-hackathon-teal" />,
+                  icon: <Award size={28} className="text-hackathon-lightPurple" />,
                   title: "Recognition",
                   description: "Winners receive prizes, certificates, mentorship opportunities, and industry recognition."
                 }
               ].map((item, index) => (
                 <motion.div 
                   key={index}
-                  className="bg-white rounded-xl shadow-md p-6 hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                  className="diamond-card hover:border-hackathon-diamond/50 transform hover:-translate-y-1"
                   variants={fadeIn}
                 >
-                  <div className="w-12 h-12 rounded-full bg-hackathon-almond/50 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-full bg-hackathon-navy/50 flex items-center justify-center mb-4">
                     {item.icon}
                   </div>
-                  <h3 className="text-xl font-semibold mb-2">{item.title}</h3>
-                  <p className="text-hackathon-charcoal/70">{item.description}</p>
+                  <h3 className="text-xl font-semibold mb-2 text-white">{item.title}</h3>
+                  <p className="text-white/70">{item.description}</p>
                 </motion.div>
               ))}
             </motion.div>
@@ -122,21 +122,21 @@ const AboutPage = () => {
 
           {/* Statistics Section */}
           <motion.div 
-            className="bg-hackathon-charcoal rounded-2xl p-10 mb-20 relative overflow-hidden"
+            className="glass-effect p-10 mb-20 relative overflow-hidden"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-hackathon-orange/10 blur-3xl"></div>
-            <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-hackathon-teal/10 blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-64 h-64 rounded-full bg-hackathon-diamond/10 blur-3xl"></div>
+            <div className="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-hackathon-lightPurple/10 blur-3xl"></div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 relative z-10">
               {[
-                { number: "3+", label: "Years Running", color: "text-hackathon-orange" },
-                { number: "1000+", label: "Participants", color: "text-hackathon-almond" },
-                { number: "50+", label: "Projects Created", color: "text-hackathon-teal" },
-                { number: "$25K", label: "in Prizes", color: "text-hackathon-orange" }
+                { number: "3+", label: "Years Running", color: "text-hackathon-diamond" },
+                { number: "1000+", label: "Participants", color: "text-white" },
+                { number: "50+", label: "Projects Created", color: "text-hackathon-lightPurple" },
+                { number: "$25K", label: "in Prizes", color: "text-hackathon-diamond" }
               ].map((stat, index) => (
                 <motion.div 
                   key={index} 
@@ -144,7 +144,7 @@ const AboutPage = () => {
                   variants={fadeIn}
                 >
                   <p className={`text-4xl font-bold mb-2 ${stat.color}`}>{stat.number}</p>
-                  <p className="text-hackathon-almond/80">{stat.label}</p>
+                  <p className="text-white/80">{stat.label}</p>
                 </motion.div>
               ))}
             </div>
@@ -160,19 +160,19 @@ const AboutPage = () => {
           >
             <div className="text-center mb-12">
               <motion.span 
-                className="inline-flex items-center text-hackathon-orange font-medium px-4 py-1.5 rounded-full bg-hackathon-orange/10 mb-4"
+                className="inline-flex items-center text-hackathon-diamond font-medium px-4 py-1.5 rounded-full bg-hackathon-diamond/10 mb-4"
                 variants={fadeIn}
               >
                 <Clock size={16} className="mr-2" /> Previous Editions
               </motion.span>
               <motion.h2 
-                className="text-3xl md:text-4xl font-bold mb-4"
+                className="text-3xl md:text-4xl font-bold mb-4 text-white"
                 variants={fadeIn}
               >
                 Past Hackathons
               </motion.h2>
               <motion.p 
-                className="text-lg max-w-2xl mx-auto text-hackathon-charcoal/70"
+                className="text-lg max-w-2xl mx-auto text-white/70"
                 variants={fadeIn}
               >
                 Look back at our journey of innovation and creativity through the years
@@ -183,21 +183,21 @@ const AboutPage = () => {
               {[
                 {
                   year: "2023",
-                  image: "bg-gradient-to-br from-hackathon-purple/20 to-hackathon-purple/5",
+                  image: "bg-gradient-to-br from-hackathon-lightPurple/20 to-hackathon-lightPurple/5",
                   title: "TechAvishkar 2023",
                   description: "Over 500 participants from 50+ colleges built innovative solutions for healthcare, education, and sustainability challenges.",
                   tags: ["AI/ML", "FinTech", "EdTech"]
                 },
                 {
                   year: "2022",
-                  image: "bg-gradient-to-br from-hackathon-teal/20 to-hackathon-teal/5",
+                  image: "bg-gradient-to-br from-hackathon-mediumPurple/20 to-hackathon-mediumPurple/5",
                   title: "TechAvishkar 2022",
                   description: "A virtual hackathon focused on cybersecurity and blockchain technologies, with 300+ participants from across the country.",
                   tags: ["CyberSec", "Blockchain", "Web3"]
                 },
                 {
                   year: "2021",
-                  image: "bg-gradient-to-br from-hackathon-orange/20 to-hackathon-orange/5",
+                  image: "bg-gradient-to-br from-hackathon-diamond/20 to-hackathon-diamond/5",
                   title: "TechAvishkar 2021",
                   description: "The inaugural hackathon with a focus on IoT and smart city solutions, bringing together 200+ enthusiastic developers.",
                   tags: ["IoT", "SmartCity", "Hardware"]
@@ -205,26 +205,26 @@ const AboutPage = () => {
               ].map((event, index) => (
                 <motion.div 
                   key={index}
-                  className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl transform hover:-translate-y-1"
+                  className="diamond-card overflow-hidden transition-all duration-300 hover:border-hackathon-diamond/50 transform hover:-translate-y-1"
                   variants={fadeIn}
                 >
                   <div className={`h-48 ${event.image} flex items-center justify-center relative p-6`}>
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-sm font-medium">
+                    <div className="absolute top-4 left-4 glass-effect px-3 py-1 rounded-full text-sm font-medium">
                       {event.year}
                     </div>
-                    <Clock size={54} className="text-hackathon-charcoal/30" />
+                    <Clock size={54} className="text-white/30" />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-xl font-semibold mb-2">{event.title}</h3>
-                    <p className="text-hackathon-charcoal/70 mb-4 line-clamp-3">
+                    <h3 className="text-xl font-semibold mb-2 text-white">{event.title}</h3>
+                    <p className="text-white/70 mb-4 line-clamp-3">
                       {event.description}
                     </p>
                     <div className="flex flex-wrap gap-2">
                       {event.tags.map((tag, tagIndex) => {
                         const tagColors = [
-                          "bg-purple-100 text-hackathon-purple",
-                          "bg-blue-100 text-hackathon-teal",
-                          "bg-orange-100 text-hackathon-orange"
+                          "bg-hackathon-lightPurple/20 text-hackathon-lightPurple",
+                          "bg-hackathon-mediumPurple/20 text-hackathon-mediumPurple",
+                          "bg-hackathon-diamond/20 text-hackathon-diamond"
                         ];
                         return (
                           <span 
@@ -244,25 +244,25 @@ const AboutPage = () => {
 
           {/* CTA Section */}
           <motion.div 
-            className="text-center bg-white rounded-2xl p-12 shadow-lg relative overflow-hidden"
+            className="bg-hackathon-navy/50 glass-effect p-12 rounded-2xl relative overflow-hidden border border-hackathon-mediumPurple/20"
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-100px" }}
             variants={staggerContainer}
           >
-            <div className="absolute top-0 right-0 w-full h-2 bg-gradient-to-r from-hackathon-orange to-hackathon-teal"></div>
-            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-hackathon-orange/5 blur-3xl"></div>
-            <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-hackathon-teal/5 blur-3xl"></div>
+            <div className="absolute top-0 right-0 w-full h-2 bg-gradient-to-r from-hackathon-diamond to-hackathon-lightPurple"></div>
+            <div className="absolute -top-24 -right-24 w-64 h-64 rounded-full bg-hackathon-diamond/5 blur-3xl"></div>
+            <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-hackathon-lightPurple/5 blur-3xl"></div>
             
             <motion.h2 
-              className="text-3xl md:text-4xl font-bold mb-6 relative inline-block"
+              className="text-3xl md:text-4xl font-bold mb-6 relative inline-block text-white"
               variants={fadeIn}
             >
               Ready to Join TechAvishkar?
-              <span className="absolute -z-10 bottom-0 left-0 h-3 w-full bg-hackathon-orange/30 rounded"></span>
+              <span className="absolute -z-10 bottom-0 left-0 h-3 w-full bg-hackathon-diamond/30 rounded"></span>
             </motion.h2>
             <motion.p 
-              className="text-lg max-w-2xl mx-auto mb-8 text-hackathon-charcoal/70"
+              className="text-lg max-w-2xl mx-auto mb-8 text-white/70"
               variants={fadeIn}
             >
               Be part of an exciting journey of innovation, learning, and networking. 
