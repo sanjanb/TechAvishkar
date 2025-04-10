@@ -59,7 +59,14 @@ export default {
                     purple: '#6E59A5',
                     teal: '#0EA5E9',
                     orange: '#F97316',
-                    light: '#F1F0FB'
+                    light: '#F1F0FB',
+                    // New colors based on the Diamond Hackathon theme
+                    darkPurple: '#231C3E',
+                    mediumPurple: '#57387F',
+                    lightPurple: '#9B6CD0',
+                    diamond: '#FFA94D',
+                    navy: '#1E1A3C',
+                    midnight: '#12101F'
                 }
 			},
 			borderRadius: {
@@ -101,13 +108,58 @@ export default {
                     '50%': {
                         opacity: '0.8'
                     }
+                },
+                'float': {
+                    '0%': {
+                        transform: 'translateY(0px)'
+                    },
+                    '50%': {
+                        transform: 'translateY(-10px)'
+                    },
+                    '100%': {
+                        transform: 'translateY(0px)'
+                    }
+                },
+                'slide-up': {
+                    '0%': {
+                        transform: 'translateY(20px)',
+                        opacity: '0'
+                    },
+                    '100%': {
+                        transform: 'translateY(0)',
+                        opacity: '1'
+                    }
+                },
+                'slide-down': {
+                    '0%': {
+                        transform: 'translateY(-20px)',
+                        opacity: '0'
+                    },
+                    '100%': {
+                        transform: 'translateY(0)',
+                        opacity: '1'
+                    }
+                },
+                'zoom-in': {
+                    '0%': {
+                        transform: 'scale(0.9)',
+                        opacity: '0'
+                    },
+                    '100%': {
+                        transform: 'scale(1)',
+                        opacity: '1'
+                    }
                 }
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
                 'fade-in': 'fade-in 0.5s ease-out forwards',
-                'pulse-light': 'pulse-light 3s infinite ease-in-out'
+                'pulse-light': 'pulse-light 3s infinite ease-in-out',
+                'float': 'float 6s ease-in-out infinite',
+                'slide-up': 'slide-up 0.6s ease-out forwards',
+                'slide-down': 'slide-down 0.6s ease-out forwards',
+                'zoom-in': 'zoom-in 0.6s ease-out forwards'
 			},
             fontFamily: {
                 sans: ['Inter', 'sans-serif'],
@@ -116,6 +168,8 @@ export default {
             backgroundImage: {
                 'hero-pattern': "url('/src/assets/hero-bg.svg')",
                 'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                'purple-gradient': 'linear-gradient(to bottom, #57387F, #231C3E)',
+                'diamond-gradient': 'linear-gradient(45deg, #FFA94D, #FF7E5F)'
             }
 		}
 	},

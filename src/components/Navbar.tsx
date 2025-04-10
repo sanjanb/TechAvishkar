@@ -1,7 +1,7 @@
 
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Diamond } from "lucide-react";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -41,15 +41,18 @@ const Navbar = () => {
     <header 
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
         isScrolled 
-          ? "bg-hackathon-almond/95 backdrop-blur-md shadow-md py-3" 
+          ? "bg-hackathon-navy/95 backdrop-blur-md shadow-lg py-3" 
           : "bg-transparent py-6"
       }`}
     >
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="flex justify-between items-center">
           <Link to="/" className="flex items-center space-x-2">
-            <div className="font-display text-2xl font-bold text-hackathon-charcoal">
-              Tech<span className="text-hackathon-orange">Avishkar</span>
+            <div className="flex items-center">
+              <Diamond className="h-8 w-8 text-hackathon-diamond mr-2" />
+              <div className="font-display text-2xl font-bold text-white">
+                Tech<span className="text-hackathon-diamond">Avishkar</span>
+              </div>
             </div>
           </Link>
 
@@ -61,12 +64,12 @@ const Navbar = () => {
                 to={link.path}
                 className={`font-medium transition-colors relative group py-2 ${
                   isActive(link.path)
-                    ? "text-hackathon-charcoal after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hackathon-orange"
-                    : "text-hackathon-charcoal/70 hover:text-hackathon-charcoal"
+                    ? "text-white after:content-[''] after:absolute after:-bottom-1 after:left-0 after:w-full after:h-0.5 after:bg-hackathon-diamond"
+                    : "text-white/70 hover:text-white"
                 }`}
               >
                 {link.name}
-                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-hackathon-orange scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
+                <span className="absolute bottom-0 left-0 w-full h-0.5 bg-hackathon-diamond scale-x-0 transition-transform duration-300 origin-left group-hover:scale-x-100"></span>
               </Link>
             ))}
           </nav>
@@ -74,10 +77,9 @@ const Navbar = () => {
           <div className="hidden md:block">
             <Link 
               to="/register" 
-              className="relative inline-flex items-center bg-hackathon-charcoal hover:bg-hackathon-charcoal/90 text-hackathon-almond font-medium rounded-lg py-2.5 px-5 transition-all overflow-hidden group"
+              className="relative inline-flex items-center bg-hackathon-diamond hover:bg-hackathon-diamond/90 text-hackathon-navy font-medium rounded-lg py-2.5 px-5 transition-all overflow-hidden group animate-pulse-glow"
             >
               <span className="relative z-10">Register Now</span>
-              <span className="absolute inset-0 bg-gradient-to-r from-hackathon-charcoal to-hackathon-orange/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></span>
             </Link>
           </div>
 
@@ -88,9 +90,9 @@ const Navbar = () => {
             aria-label="Toggle menu"
           >
             {isOpen ? (
-              <X size={24} className="text-hackathon-charcoal animate-fade-in" />
+              <X size={24} className="text-white animate-fade-in" />
             ) : (
-              <Menu size={24} className="text-hackathon-charcoal animate-fade-in" />
+              <Menu size={24} className="text-white animate-fade-in" />
             )}
           </button>
         </div>
@@ -98,7 +100,7 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {isOpen && (
-        <div className="md:hidden bg-hackathon-almond/95 backdrop-blur-md border-t border-hackathon-charcoal/10 animate-fade-in">
+        <div className="md:hidden bg-hackathon-navy/95 backdrop-blur-md border-t border-hackathon-mediumPurple/20 animate-fade-in mobile-menu-height overflow-y-auto">
           <div className="container px-4 sm:px-6 py-6 space-y-4">
             {navLinks.map((link, index) => (
               <Link
@@ -110,17 +112,17 @@ const Navbar = () => {
               >
                 <div className={`flex items-center ${
                   isActive(link.path)
-                    ? "text-hackathon-charcoal"
-                    : "text-hackathon-charcoal/70 hover:text-hackathon-charcoal"
+                    ? "text-white"
+                    : "text-white/70 hover:text-white"
                 }`}>
-                  <ChevronDown size={16} className={`mr-2 transition-transform duration-300 ${isActive(link.path) ? "rotate-180 text-hackathon-orange" : ""}`} />
+                  <ChevronDown size={16} className={`mr-2 transition-transform duration-300 ${isActive(link.path) ? "rotate-180 text-hackathon-diamond" : ""}`} />
                   {link.name}
                 </div>
               </Link>
             ))}
             <Link
               to="/register"
-              className="block text-center mt-4 bg-hackathon-charcoal hover:bg-hackathon-charcoal/90 text-hackathon-almond font-medium rounded-lg py-2.5 px-5 transition-all animate-fade-up"
+              className="block text-center mt-4 bg-hackathon-diamond hover:bg-hackathon-diamond/90 text-hackathon-navy font-medium rounded-lg py-2.5 px-5 transition-all animate-fade-up"
               style={{ animationDelay: "0.4s" }}
               onClick={() => setIsOpen(false)}
             >

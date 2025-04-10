@@ -1,6 +1,6 @@
 
 import { Link } from "react-router-dom";
-import { Facebook, Instagram, Twitter, Github, Mail, MapPin, ChevronRight, ExternalLink } from "lucide-react";
+import { Facebook, Instagram, Twitter, Github, Mail, MapPin, ChevronRight, ExternalLink, Diamond } from "lucide-react";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -10,7 +10,8 @@ const Footer = () => {
       <div className="container max-w-7xl mx-auto px-4 sm:px-6">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
           <div className="md:col-span-5">
-            <div className="font-display text-3xl font-bold mb-6 animate-fade-up">
+            <div className="font-display text-3xl font-bold mb-6 animate-fade-up flex items-center">
+              <Diamond className="mr-2 text-hackathon-orange h-7 w-7" />
               Tech<span className="text-hackathon-orange">Avishkar</span>
             </div>
             <p className="text-hackathon-almond/80 mb-6 max-w-md text-lg animate-fade-up" style={{ animationDelay: "0.1s" }}>

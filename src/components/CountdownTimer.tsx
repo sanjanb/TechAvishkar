@@ -55,33 +55,33 @@ const CountdownTimer: React.FC<CountdownTimerProps> = ({ targetDate }) => {
   };
 
   return (
-    <div className="flex flex-wrap justify-center gap-4 sm:gap-6">
-      <div className="bg-white/90 backdrop-blur-sm shadow-lg p-4 sm:p-6 rounded-xl w-20 sm:w-24 flex flex-col items-center">
-        <div className="text-2xl sm:text-3xl font-bold text-hackathon-purple">
+    <div className="flex flex-wrap justify-center gap-4">
+      <div className="glass-effect p-4 rounded-xl w-20 flex flex-col items-center shadow-md">
+        <div className="text-2xl sm:text-3xl font-bold text-hackathon-diamond">
           {formatTime(timeLeft.days)}
         </div>
-        <div className="text-xs sm:text-sm text-gray-500 mt-1">Days</div>
+        <div className="text-xs sm:text-sm text-white/70 mt-1">Days</div>
       </div>
 
-      <div className="bg-white/90 backdrop-blur-sm shadow-lg p-4 sm:p-6 rounded-xl w-20 sm:w-24 flex flex-col items-center">
-        <div className="text-2xl sm:text-3xl font-bold text-hackathon-purple">
+      <div className="glass-effect p-4 rounded-xl w-20 flex flex-col items-center shadow-md">
+        <div className="text-2xl sm:text-3xl font-bold text-hackathon-diamond">
           {formatTime(timeLeft.hours)}
         </div>
-        <div className="text-xs sm:text-sm text-gray-500 mt-1">Hours</div>
+        <div className="text-xs sm:text-sm text-white/70 mt-1">Hours</div>
       </div>
 
-      <div className="bg-white/90 backdrop-blur-sm shadow-lg p-4 sm:p-6 rounded-xl w-20 sm:w-24 flex flex-col items-center">
-        <div className="text-2xl sm:text-3xl font-bold text-hackathon-purple">
+      <div className="glass-effect p-4 rounded-xl w-20 flex flex-col items-center shadow-md">
+        <div className="text-2xl sm:text-3xl font-bold text-hackathon-diamond">
           {formatTime(timeLeft.minutes)}
         </div>
-        <div className="text-xs sm:text-sm text-gray-500 mt-1">Minutes</div>
+        <div className="text-xs sm:text-sm text-white/70 mt-1">Minutes</div>
       </div>
 
-      <div className="bg-white/90 backdrop-blur-sm shadow-lg p-4 sm:p-6 rounded-xl w-20 sm:w-24 flex flex-col items-center">
-        <div className="text-2xl sm:text-3xl font-bold text-hackathon-purple">
+      <div className="glass-effect p-4 rounded-xl w-20 flex flex-col items-center shadow-md">
+        <div className="text-2xl sm:text-3xl font-bold text-hackathon-diamond">
           {formatTime(timeLeft.seconds)}
         </div>
-        <div className="text-xs sm:text-sm text-gray-500 mt-1">Seconds</div>
+        <div className="text-xs sm:text-sm text-white/70 mt-1">Seconds</div>
       </div>
     </div>
   );
