@@ -11,9 +11,12 @@ const TracksPage = () => {
       description:
         "Build intelligent solutions using AI algorithms and machine learning models to solve complex problems.",
       problems: [
-        "Develop a natural language processing system for medical diagnosis assistance",
-        "Create a computer vision solution for quality control in manufacturing",
-        "Build a recommendation engine for personalized learning paths",
+        // "Develop a natural language processing system for medical diagnosis assistance",
+        // "Create a computer vision solution for quality control in manufacturing",
+        // "Build a recommendation engine for personalized learning paths",
+        "Yet to be announced",
+        "Yet to be announced",
+        "Yet to be announced",
       ],
     },
     {
@@ -23,9 +26,12 @@ const TracksPage = () => {
       description:
         "Build intelligent solutions using AI algorithms and machine learning models to solve complex problems.",
       problems: [
-        "Develop a natural language processing system for medical diagnosis assistance",
-        "Create a computer vision solution for quality control in manufacturing",
-        "Build a recommendation engine for personalized learning paths",
+        // "Develop a natural language processing system for medical diagnosis assistance",
+        // "Create a computer vision solution for quality control in manufacturing",
+        // "Build a recommendation engine for personalized learning paths",
+        "Yet to be announced",
+        "Yet to be announced",
+        "Yet to be announced",
       ],
     },
     {
@@ -35,9 +41,12 @@ const TracksPage = () => {
       description:
         "Any unique tech-based solution that doesn't fit into the other categories but addresses a significant problem.",
       problems: [
-        "Create solutions for environmental sustainability",
-        "Develop accessibility tools for persons with disabilities",
-        "Build education technology for underserved communities",
+        // "Create solutions for environmental sustainability",
+        // "Develop accessibility tools for persons with disabilities",
+        // "Build education technology for underserved communities",
+        "Yet to be announced",
+        "Yet to be announced",
+        "Yet to be announced",
       ],
     },
   ];
