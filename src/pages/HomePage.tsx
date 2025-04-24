@@ -250,7 +250,7 @@ const HomePage = () => {
                 <MapPin size={36} className="text-hackathon-diamond mb-4" />
                 <h3 className="text-xl font-semibold mb-2 text-white">Venue</h3>
                 <p className="text-white/70">
-                  TechAvishkar Campus, Innovation Hub, Tech City
+                  ATME College of Engineering Campus, Mellahalli, Mysuru
                 </p>
               </CardContent>
             </Card>
@@ -265,7 +265,8 @@ const HomePage = () => {
                   Participants
                 </h3>
                 <p className="text-white/70">
-                  Open to students, professionals, and tech enthusiasts
+                  Open to students of maximum4 members per team from any
+                  discipline.
                 </p>
               </CardContent>
             </Card>
@@ -347,7 +348,9 @@ const HomePage = () => {
                 <p className="text-xs font-semibold text-hackathon-diamond mb-1">
                   PRIZE POOL
                 </p>
-                <p className="text-xl font-bold text-white">$5,000</p>
+                <p className="text-xl font-bold text-white">
+                  Cash & Internship
+                </p>
               </div>
               <Link
                 to="/tracks"
@@ -372,17 +375,18 @@ const HomePage = () => {
                 <Code size={32} className="text-hackathon-diamond" />
               </div>
               <h3 className="text-2xl font-semibold mb-4 text-white">
-                Cybersecurity
+                Web Dev
               </h3>
               <p className="text-white/70 mb-6">
-                Tackle modern security challenges and build innovative security
-                solutions.
+                Tackle modern challenges and build innovative web platforms.
               </p>
               <div className="bg-hackathon-mediumPurple/30 p-3 rounded-lg mb-6">
                 <p className="text-xs font-semibold text-hackathon-diamond mb-1">
                   PRIZE POOL
                 </p>
-                <p className="text-xl font-bold text-white">$4,500</p>
+                <p className="text-xl font-bold text-white">
+                  Cash & Internship
+                </p>
               </div>
               <Link
                 to="/tracks"
@@ -406,9 +410,7 @@ const HomePage = () => {
               <div className="w-16 h-16 rounded-full bg-hackathon-diamond/10 flex items-center justify-center mb-6">
                 <Code size={32} className="text-hackathon-diamond" />
               </div>
-              <h3 className="text-2xl font-semibold mb-4 text-white">
-                Internet of Things (IoT)
-              </h3>
+              <h3 className="text-2xl font-semibold mb-4 text-white">Open</h3>
               <p className="text-white/70 mb-6">
                 Develop smart, connected systems that interact with the physical
                 world.
@@ -417,7 +419,9 @@ const HomePage = () => {
                 <p className="text-xs font-semibold text-hackathon-diamond mb-1">
                   PRIZE POOL
                 </p>
-                <p className="text-xl font-bold text-white">$4,000</p>
+                <p className="text-xl font-bold text-white">
+                  Cash & Internship
+                </p>
               </div>
               <Link
                 to="/tracks"
