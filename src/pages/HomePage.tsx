@@ -22,9 +22,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { useEffect, useRef, useState } from "react";
 
 const HomePage = () => {
-  // Set a future date for the hackathon (3 months from current date)
+  // Set a fixed future date for the hackathon (15-05-2025)
   const futureDate = new Date("2025-05-15T11:00:00Z");
-  // futureDate.setMonth(futureDate.getMonth() + 3);
   const hackathonDate = futureDate.toISOString();
 
   // Animation state for scroll-based reveals
@@ -43,27 +42,22 @@ const HomePage = () => {
   useEffect(() => {
     const handleScroll = () => {
       const scrollPosition = window.scrollY + window.innerHeight;
-
       if (infoRef.current && scrollPosition > infoRef.current.offsetTop + 100) {
         setAnimateSection((prev) => ({ ...prev, info: true }));
       }
-
       if (
         tracksRef.current &&
         scrollPosition > tracksRef.current.offsetTop + 100
       ) {
         setAnimateSection((prev) => ({ ...prev, tracks: true }));
       }
-
       if (ctaRef.current && scrollPosition > ctaRef.current.offsetTop + 100) {
         setAnimateSection((prev) => ({ ...prev, cta: true }));
       }
     };
-
     window.addEventListener("scroll", handleScroll);
     // Trigger once on mount to check initial viewport
     handleScroll();
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -75,7 +69,6 @@ const HomePage = () => {
         <div className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none">
           <div className="absolute -bottom-24 -left-24 w-64 h-64 rounded-full bg-hackathon-mediumPurple/20 blur-3xl"></div>
           <div className="absolute top-32 -right-32 w-96 h-96 rounded-full bg-hackathon-diamond/10 blur-3xl"></div>
-
           {/* Geometric shapes */}
           <div className="absolute top-[20%] left-[10%] w-12 h-12 bg-hackathon-diamond/30 rounded-full animate-float"></div>
           <div
@@ -87,7 +80,6 @@ const HomePage = () => {
             style={{ animationDelay: "2s" }}
           ></div>
         </div>
-
         <div className="container max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
           <div className="grid md:grid-cols-12 gap-8 items-center">
             <div className="md:col-span-7 order-2 md:order-1">
@@ -112,7 +104,6 @@ const HomePage = () => {
                   innovators, and tech enthusiasts to create cutting-edge
                   solutions.
                 </p>
-
                 <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center md:justify-start">
                   <Link
                     to="/register"
@@ -135,7 +126,6 @@ const HomePage = () => {
                     Learn More
                   </Link>
                 </div>
-
                 <div
                   className="flex flex-wrap gap-x-8 gap-y-3 justify-center md:justify-start text-sm animate-fade-up"
                   style={{ animationDelay: "0.5s" }}
@@ -160,52 +150,36 @@ const HomePage = () => {
                 </div>
               </div>
             </div>
-
             <div className="md:col-span-5 order-1 md:order-2">
               <div className="glass-effect shadow-xl p-8 border border-hackathon-mediumPurple/30 animate-fade-in animate-float max-w-md mx-auto">
                 <div className="flex items-center justify-center mb-4">
-                  <Diamond size={28} className="text-hackathon-diamond mr-2" />
+                  {/* <Diamond size={28} className="text-hackathon-diamond mr-2" /> */}
                   <h2 className="text-2xl font-bold text-white">
                     Hackathon Countdown
                   </h2>
                 </div>
                 <CountdownTimer targetDate={hackathonDate} />
-                <div className="mt-8 text-center">
-                  <div className="flex items-center justify-center gap-2 text-white/70 text-sm font-medium">
-                    <Clock size={16} className="text-hackathon-diamond" />
-                    <p>
-                      {new Date(hackathonDate).toLocaleDateString(undefined, {
-                        weekday: "long",
-                        year: "numeric",
-                        month: "long",
-                        day: "numeric",
-                      })}
-                    </p>
-                  </div>
-                </div>
               </div>
             </div>
           </div>
 
           {/* Categories/Tracks quick preview */}
-          <div className="mt-12 sm:mt-20 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-3 sm:gap-4">
+          {/* Categories/Tracks quick preview */}
+          <div className="mt-12 sm:mt-20 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8 justify-center">
             {[
-              { icon: <Code size={24} />, name: "Web Dev" },
+              { icon: <Code size={24} />, name: "Web" },
               { icon: <Network size={24} />, name: "AI/ML" },
-              { icon: <Globe size={24} />, name: "IoT" },
-              { icon: <TrendingUp size={24} />, name: "Blockchain" },
-              { icon: <GraduationCap size={24} />, name: "EdTech" },
               { icon: <Sparkles size={24} />, name: "Open" },
             ].map((category, index) => (
               <div
                 key={index}
-                className="glass-effect flex flex-col items-center justify-center py-4 px-2 sm:px-4 text-center animate-fade-up rounded-lg"
+                className="glass-effect flex flex-col items-center justify-center py-4 px-4 sm:px-6 text-center animate-fade-up rounded-lg max-w-xs mx-auto"
                 style={{ animationDelay: `${0.2 + index * 0.1}s` }}
               >
-                <div className="w-10 h-10 rounded-full bg-hackathon-mediumPurple/30 flex items-center justify-center mb-2 text-hackathon-diamond">
+                <div className="w-40 h-7 rounded-full bg-hackathon-mediumPurple/30 flex items-center justify-center mb-4 text-hackathon-diamond">
                   {category.icon}
                 </div>
-                <span className="text-xs sm:text-sm font-medium text-white">
+                <span className="text-sm sm:text-base font-medium text-white">
                   {category.name}
                 </span>
               </div>
@@ -246,7 +220,6 @@ const HomePage = () => {
               innovation in AI, IoT, cybersecurity, and software development.
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <Card
               className={`diamond-card ${
@@ -268,7 +241,6 @@ const HomePage = () => {
                 </p>
               </CardContent>
             </Card>
-
             <Card
               className={`diamond-card ${
                 animateSection.info ? "animate-fade-up stagger-2" : "opacity-0"
@@ -282,7 +254,6 @@ const HomePage = () => {
                 </p>
               </CardContent>
             </Card>
-
             <Card
               className={`diamond-card ${
                 animateSection.info ? "animate-fade-up stagger-3" : "opacity-0"
@@ -298,7 +269,6 @@ const HomePage = () => {
                 </p>
               </CardContent>
             </Card>
-
             <Card
               className={`diamond-card ${
                 animateSection.info ? "animate-fade-up stagger-4" : "opacity-0"
@@ -317,7 +287,6 @@ const HomePage = () => {
             </Card>
           </div>
         </div>
-
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-32 bg-hackathon-darkPurple clip-path-diagonal -z-10"></div>
         <div className="absolute bottom-0 left-0 w-full h-32 bg-hackathon-darkPurple clip-path-wave -z-10 transform rotate-180"></div>
@@ -355,7 +324,6 @@ const HomePage = () => {
               skills and creativity.
             </p>
           </div>
-
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 lg:gap-12 mb-12">
             <div
               className={`diamond-card relative overflow-hidden ${
@@ -392,7 +360,6 @@ const HomePage = () => {
                 />
               </Link>
             </div>
-
             <div
               className={`diamond-card relative overflow-hidden ${
                 animateSection.tracks
@@ -428,7 +395,6 @@ const HomePage = () => {
                 />
               </Link>
             </div>
-
             <div
               className={`diamond-card relative overflow-hidden ${
                 animateSection.tracks
@@ -465,7 +431,6 @@ const HomePage = () => {
               </Link>
             </div>
           </div>
-
           <div
             className={`text-center ${
               animateSection.tracks ? "animate-fade-up" : "opacity-0"
@@ -480,13 +445,12 @@ const HomePage = () => {
             </Button>
           </div>
         </div>
-
         {/* Decorative elements */}
         <div className="absolute -bottom-24 -right-24 w-64 h-64 rounded-full bg-hackathon-mediumPurple/10 blur-3xl"></div>
         <div className="absolute top-1/4 -left-32 w-64 h-64 rounded-full bg-hackathon-diamond/10 blur-3xl"></div>
       </section>
 
-      {/* CTA Section - Kept as is per request */}
+      {/* CTA Section */}
       <section
         ref={ctaRef}
         className="py-28 bg-hackathon-charcoal text-hackathon-almond relative overflow-hidden"
@@ -530,7 +494,6 @@ const HomePage = () => {
             </Button>
           </div>
         </div>
-
         {/* Decorative elements */}
         <div className="absolute bottom-0 left-0 w-full h-24">
           <svg
